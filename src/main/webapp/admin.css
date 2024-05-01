@@ -1,0 +1,33 @@
+.product-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.title {
+    color: white;
+    font-size: medium;
+}
+
+.product-toolbox {
+    margin-left: auto;
+    margin-top: 10px; /* Aggiungi spazio tra il titolo e i pulsanti */
+    display: flex;
+    justify-content: flex-end;
+}
+
+input[type="number"] {
+    width: auto;
+    padding: 5px;
+    max-width: 100px;
+}
+
+@media screen and (max-width: 1400px) {
+    .product-line {
+        display: block;
+    }
+
+    .product-toolbox {
+        justify-content: flex-start;
+    }
+}
