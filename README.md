@@ -7,7 +7,6 @@
 
 - [Java](https://www.oracle.com/java/): The primary programming language used for backend development.
 - [MySQL](https://www.mysql.com/): Relational database used for data persistence.
-- [Docker](https://www.docker.com/): Used for containerizing applications.
 - [JUnit](https://junit.org/junit5/): Testing framework for Java code unit testing.
 - [Maven](https://maven.apache.org/): Build automation tool used for managing dependencies and building Java projects.
 - [Git](https://git-scm.com/): Version control system used for managing source code.
