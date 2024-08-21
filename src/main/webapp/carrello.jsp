@@ -42,7 +42,7 @@
         %>
         <div class="Cart-Items">
             <div class="image-box">
-                <img src="./images/<%=prodotto.getId()%>/1.jpg" height="120px"/>
+                <img src="./images/<%=prodotto.getId()%>/1.jpg" alt="Immagine del prodotto" height="120px"/>
             </div>
             <div class="about">
                 <h1 class="title"><%=prodotto.getNome()%>
@@ -70,7 +70,7 @@
                 <div class="total-amount"><%=String.format("%.2f", totale).replace(",", ".")%><span
                         class="euro">€</span></div>
             </div>
-            <button id="submit-checkout" class="button"
+            <button id="submit-checkout" aria-label="Pulsante per effettuare il Checkout" class="button"
                     onclick='$("#checkout-container").load("checkout.jsp"); $(".CarrelloContainer").hide()'>
                 Checkout
             </button>

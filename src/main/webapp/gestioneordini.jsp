@@ -66,7 +66,7 @@
         </td>
         <td><%=o.getTotale()%> <span class="euro" style="text-align: end">€</span></td>
         <td>
-            <button class="aggiorna-ordine-btn">Aggiorna</button>
+            <button class="aggiorna-ordine-btn" aria-describedby="Aggiornamento di un Ordine">Aggiorna</button>
         </td>
     </tr>
     <%}%>

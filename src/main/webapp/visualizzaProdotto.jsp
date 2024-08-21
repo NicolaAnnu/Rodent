@@ -44,10 +44,10 @@
   <div class="slideshow-container">
     <%for (int i = 1; i <= 4; i++) {%>
     <div class="slide">
-      <img src="./images/<%=p.getId()%>/<%=i%>.jpg" class="p-image" alt="Image"
+      <img src="./images/<%=p.getId()%>/<%=i%>.jpg"  class="p-image" alt="Image"
            onerror="this.parentNode.remove()">
-      <button class="prev-button"><img src="./icons/left.svg" width="40px" height="40px"></button>
-      <button class="next-button"><img src="./icons/right.svg" width="40px" height="40px"></button>
+      <button class="prev-button"><img src="./icons/left.svg" alt="Indietro" width="40px" height="40px"></button>
+      <button class="next-button"><img src="./icons/right.svg" alt="Avanti" width="40px" height="40px"></button>
     </div>
     <%}%>
   </div>
@@ -66,8 +66,8 @@
     <div class="atc-container">
       <br><br>
       <button class="heart-button no-background">
-        <img class="hearth" src="icons/heartIcon.svg" style="<%if(isPreferito){%><%="display:none"%><%}%>">
-        <img class="hearth" src="icons/heartIconClicked.svg"
+        <img class="hearth" src="icons/heartIcon.svg" alt="" style="<%if(isPreferito){%><%="display:none"%><%}%>">
+        <img class="hearth" src="icons/heartIconClicked.svg" alt=""
              style="<%if(!isPreferito){%><%="display:none"%><%}%>">
       </button>
       <br><br>

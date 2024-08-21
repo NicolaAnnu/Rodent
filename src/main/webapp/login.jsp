@@ -20,9 +20,9 @@
 <script rel="script" src="login.js"></script>
 <form id="login-form" method="post">
   <label class="login-label" for="email">Email :</label>
-  <input class="input-field" id="email" name="email" type="email" required>
+  <input class="input-field" id="email" name="email" aria-describedby="Inserimento email"  type="email" required>
   <label class="login-label" for="password">Password :</label>
-  <input class="input-field" id="password" name="password" type="password" required>
+  <input class="input-field" id="password" name="password"  aria-describedby="Inserimento Password" type="password" required>
   <p class="messaggio-errore" style="display: none">I dati inseriti non sono corretti !</p>
   <input class="submit-button" type="submit">
   <p id="registrati"><a href="register.jsp">Registrati</a></p>

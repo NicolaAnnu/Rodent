@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="banner-container">
-    <img class="banner" src="images/banner/<%=request.getAttribute("active")%>.png">
+    <img class="banner" src="images/banner/<%=request.getAttribute("active")%>.png" alt="Banner">
 </div>
 
 </body>
