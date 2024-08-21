@@ -1,29 +1,30 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
     var currentIndex = 0;
-    var slides = $('.slide');
+    var slides = document.querySelectorAll('.slide');
     var totalSlides = slides.length;
-    slides.hide();
-    slides.eq(currentIndex).show();
+
+    slides.forEach(function (slide) {
+        slide.style.display = 'none';
+    });
+    slides[currentIndex].style.display = 'block';
 
     function nextSlide() {
-        slides.eq(currentIndex).hide();
+        slides[currentIndex].style.display = 'none';
         currentIndex = (currentIndex + 1) % totalSlides;
-        slides.eq(currentIndex).fadeIn();
+        slides[currentIndex].style.display = 'block';
     }
 
     function prevSlide() {
-        slides.eq(currentIndex).hide();
+        slides[currentIndex].style.display = 'none';
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        slides.eq(currentIndex).fadeIn();
+        slides[currentIndex].style.display = 'block';
     }
 
-
-    // Azioni dei pulsanti "Avanti" e "Indietro"
-    $('.next-button').click(function () {
+    document.querySelector('.next-button').addEventListener('click', function () {
         nextSlide();
     });
 
-    $('.prev-button').click(function () {
+    document.querySelector('.prev-button').addEventListener('click', function () {
         prevSlide();
     });
 });

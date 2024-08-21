@@ -1,21 +1,34 @@
-$(document).ready(function () {
-    $("#login-form").submit(function (event) {
+document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-            url: "login",
-            type: "POST",
-            data: formData,
-            contentType: "application/x-www-form-urlencoded",
-            success: function (response) {
-                window.location.reload();
+
+        // Serializza il form
+        const formData = new URLSearchParams(new FormData(loginForm)).toString();
+
+        // Effettua la richiesta AJAX
+        fetch('login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
-            error: function (xhr, status, error) {
-                $(".messaggio-errore").slideToggle(400);
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    throw new Error('Login failed');
+                }
+            })
+            .catch(error => {
+                const errorMessage = document.querySelector('.messaggio-errore');
+                // Mostra il messaggio di errore con un effetto toggle
+                errorMessage.style.display = 'block';
                 setTimeout(() => {
-                    $(".messaggio-errore").slideToggle(400);
-                }, 2000)
-            }
-        });
+                    errorMessage.style.display = 'none';
+                }, 2000);
+            });
     });
 });
