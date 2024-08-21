@@ -38,10 +38,6 @@ Per avviare il progetto:
 1. **Esegui Tomcat**: Avvia il server Tomcat.
 2. **Accedi all'applicazione**: Apri un browser web e vai all'URL dell'applicazione, tipicamente `http://localhost:8080/nome-del-progetto`.
 
-## Contribuire
-
-Se desideri contribuire al progetto, segui queste [linee guida](CONTRIBUTING.md) e invia una pull request con le tue modifiche.
-
 ## Licenza
 
 Questo progetto è concesso in licenza sotto la [Licenza MIT](LICENSE).
