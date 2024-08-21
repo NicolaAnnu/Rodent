@@ -15,33 +15,33 @@
 <form id="register-form" action="signup" method="post">
 
   <label class="register-label" for="Username">Username :</label>
-  <input required class="input-field" id="Username" name="username" type="text">
+  <input required class="input-field" id="Username" name="username" aria-describedby="" type="text">
 
   <label class="register-label" for="email">Email :</label>
-  <input required class="input-field" id="email" name="email" type="email">
+  <input required class="input-field" id="email" name="email" aria-describedby="" type="email">
 
   <label class="register-label" for="password">Password :</label>
-  <input required class="input-field" id="password" name="password" type="password">
+  <input required class="input-field" id="password" name="password" aria-describedby=""  type="password">
 
   <label class="register-label" for="nome">Nome :</label>
-  <input required class="input-field" id="nome" name="nome" type="text">
+  <input required class="input-field" id="nome" name="nome" aria-describedby=""  type="text">
 
   <label class="register-label" for="cognome">Cognome :</label>
-  <input required class="input-field" id="cognome" name="cognome" type="text">
+  <input required class="input-field" id="cognome" name="cognome" aria-describedby="" type="text">
 
   <label class="register-label" for="telefono">Telefono :</label>
-  <input required class="input-field" id="telefono" name="telefono" type="text" pattern="^[0-9]{6,10}$">
+  <input required class="input-field" id="telefono" name="telefono" aria-describedby="" type="text" pattern="^[0-9]{6,10}$">
 
   <label class="register-label" for="via">Via :</label>
-  <input required class="input-field" id="via" name="via" type="text">
+  <input required class="input-field" id="via" name="via" aria-describedby=""  type="text">
 
   <label class="register-label" for="civico">Civico :</label>
-  <input required pattern="[0-9]+" class="input-field" id="civico" name="civico" type="text">
+  <input required pattern="[0-9]+" class="input-field" id="civico" name="civico" aria-describedby="" type="text">
 
   <label class="register-label" for="cap">Cap :</label>
-  <input required class="input-field" id="cap" name="cap" type="text" pattern="\d{5}" title="Inserisci un cap valido">
+  <input required class="input-field" id="cap" name="cap" aria-describedby="" type="text" pattern="\d{5}" title="Inserisci un cap valido">
 
-  <input class="submit-button" type="submit">
+  <input class="submit-button" type="submit" aria-describedby="Submit Button">
 
 </form>
 </body>

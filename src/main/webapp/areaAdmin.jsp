@@ -52,7 +52,7 @@
                         <option value="false" <%if (!disponibile) {%><%="selected"%><%}%>>false</option>
                     </select>
                     <input type="number" name="prezzo" value="<%= prodotti.get(i).getPrezzo()%>">
-                    <button class="Aggiorna">Aggiorna</button>
+                    <button class="Aggiorna" aria-label="Pulsante aggiorna">Aggiorna</button>
                 </div>
             </div>
             <%}%>
