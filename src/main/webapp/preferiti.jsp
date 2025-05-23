@@ -25,10 +25,9 @@
     <div class="internal-div">
       <span><%=p.getPrezzo()%>€</span>
       <button class="heart-button">
-        <img src="icons/heartIconClicked.svg" alt="Elemento aggiunto ai preferiti">
+        <img src="icons/heartIconClicked.svg" alt = "Elemento aggiunto ai preferiti">
       </button>
     </div>
   </div>
   <%}%>
 </div>
-

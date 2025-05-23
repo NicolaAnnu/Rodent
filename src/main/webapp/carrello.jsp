@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ page import="com.google.gson.Gson" %>
 <%@ page import="model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
@@ -70,7 +71,7 @@
                 <div class="total-amount"><%=String.format("%.2f", totale).replace(",", ".")%><span
                         class="euro">€</span></div>
             </div>
-            <button id="submit-checkout" aria-label="Pulsante per effettuare il Checkout" class="button"
+            <button id="submit-checkout" class="button"
                     onclick='$("#checkout-container").load("checkout.jsp"); $(".CarrelloContainer").hide()'>
                 Checkout
             </button>
@@ -84,7 +85,4 @@
 </div>
 
 </body>
-
-
 </html>
-

@@ -1,6 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.dropdown-button').addEventListener('click', () => {
-        const smallNavigation = document.querySelector('.small-navigation');
-        smallNavigation.style.display = smallNavigation.style.display === 'none' || smallNavigation.style.display === '' ? 'block' : 'none';
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".dropdown-button").forEach(button => {
+        button.addEventListener("click", function () {
+            document.querySelectorAll(".small-navigation").forEach(nav => {
+                if (getComputedStyle(nav).display === "none") {
+                    nav.style.display = "block";
+                    nav.style.transition = "all 0.3s ease"; // Simulazione tempo 300ms
+                } else {
+                    nav.style.display = "none";
+                }
+            });
+        });
     });
 });

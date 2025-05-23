@@ -1,34 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('login-form');
-
-    loginForm.addEventListener('submit', function (event) {
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#login-form").addEventListener("submit", function (event) {
         event.preventDefault();
 
-        // Serializza il form
-        const formData = new URLSearchParams(new FormData(loginForm)).toString();
+        const formData = new URLSearchParams(new FormData(this)).toString();
 
-        // Effettua la richiesta AJAX
-        fetch('login', {
-            method: 'POST',
+        fetch("login", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: formData
-        })
-            .then(response => {
-                if (response.ok) {
-                    window.location.reload();
-                } else {
-                    throw new Error('Login failed');
+        }).then(response => {
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                const errorBox = document.querySelector(".messaggio-errore");
+                if (errorBox) {
+                    errorBox.style.transition = "max-height 0.4s ease";
+                    errorBox.style.overflow = "hidden";
+                    errorBox.style.maxHeight = errorBox.scrollHeight + "px";
+
+                    setTimeout(() => {
+                        errorBox.style.maxHeight = "0";
+                    }, 2000);
                 }
-            })
-            .catch(error => {
-                const errorMessage = document.querySelector('.messaggio-errore');
-                // Mostra il messaggio di errore con un effetto toggle
-                errorMessage.style.display = 'block';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 2000);
-            });
+            }
+        });
     });
 });

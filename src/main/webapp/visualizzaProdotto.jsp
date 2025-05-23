@@ -67,7 +67,7 @@
       <br><br>
       <button class="heart-button no-background">
         <img class="hearth" src="icons/heartIcon.svg" alt="" style="<%if(isPreferito){%><%="display:none"%><%}%>">
-        <img class="hearth" src="icons/heartIconClicked.svg" alt=""
+        <img class="hearth" src="icons/heartIconClicked.svg" alt="Elemento aggiunto ai preferiti"
              style="<%if(!isPreferito){%><%="display:none"%><%}%>">
       </button>
       <br><br>

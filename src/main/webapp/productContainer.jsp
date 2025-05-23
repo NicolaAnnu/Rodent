@@ -19,18 +19,19 @@
   <% for (Prodotto p : (ArrayList<Prodotto>) request.getAttribute("prodotti")) {%>
   <div class="product-card" id="<%=p.getId()%>">
     <a href="visualizzaProdotto.jsp?id=<%=p.getId()%>">
-      <img src="./images/<%=p.getId()%>/1.jpg" alt="Immagine prodotto">
+      <img src="./images/<%=p.getId()%>/1.jpg">
       <h4><%=p.getNome()%>
     </a>
     </h4>
     <div class="internal-div">
       <span><%=String.format("%.2f", p.getPrezzo()).replace(",", ".")%>€</span>
-      <button class="heart-button" aria-describedby="">
-        <img src="icons/heartIcon.svg" alt="">
-        <img src="icons/heartIconClicked.svg" alt="" style="display: none">
+      <button class="heart-button">
+        <img src="icons/heartIcon.svg">
+        <img src="icons/heartIconClicked.svg" style="display: none">
       </button>
     </div>
   </div>
   <%}%>
 </div>
+
 

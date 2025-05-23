@@ -1,20 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.aggiorna-ordine-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            var riga = this.closest(".riga");
-            var status = riga.querySelector('select').value;
-            var idOrdine = riga.querySelector('.id-ordine').textContent;
+$(document).ready(() => {
+    $('.aggiorna-ordine-btn').click(function () {
+        var riga = $(this).closest(".riga");
+        var status = $(riga).find('select').val();
+        var idOrdine = $(riga).find('.id-ordine').text();
 
-            console.log('status:', status);
-            console.log('idOrdine:', idOrdine);
-
-            fetch('gestioneOrdini', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `id=${encodeURIComponent(idOrdine.trim())}&status=${encodeURIComponent(status)}`
-            });
-        });
-    });
-});
+        console.log('status:', status);
+        console.log('idOrdine:', idOrdine);
+        $.post("gestioneOrdini", {"id": idOrdine.trim(), "status": status});
+    })
+})

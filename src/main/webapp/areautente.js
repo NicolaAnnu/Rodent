@@ -1,38 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuOptions = document.querySelectorAll('.menu-options li a');
-    menuOptions.forEach(menuOption => {
-        menuOption.addEventListener('click', function() {
-            // Rimuove la classe 'selected' da tutti gli elementi
-            document.querySelectorAll('.menu-options li').forEach(li => {
-                li.classList.remove('selected');
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".menu-options li a").forEach(link => {
+        link.addEventListener("click", function () {
+            document.querySelectorAll(".menu-options li").forEach(li => {
+                li.classList.remove("selected");
             });
-            // Aggiunge la classe 'selected' all'elemento cliccato
-            this.parentElement.classList.add('selected');
-            // Nasconde tutti gli elementi del menu
-            document.querySelectorAll('.menu-item').forEach(menuItem => {
-                menuItem.style.display = 'none';
+
+            this.closest("li").classList.add("selected");
+
+            document.querySelectorAll(".menu-item").forEach(item => {
+                item.style.display = "none";
             });
-            // Recupera il testo dell'elemento cliccato e lo usa per mostrare il contenuto
-            let target = this.parentElement.textContent.trim().replace(" ", "-");
-            const targetMenuItem = document.getElementById(target);
-            if (targetMenuItem) {
-                targetMenuItem.style.display = 'block';
+
+            let target = this.closest("li").textContent.replace(" ", "-");
+            let targetElement = document.querySelector(`#${target}.menu-item`);
+            if (targetElement) {
+                targetElement.style.display = "block";
             }
-            // Carica le pagine JSP specifiche, se necessario
-            if (target.toLowerCase() === 'preferiti') {
-                document.getElementById('preferiti').innerHTML = ''; // Opzionale: pulizia contenuto precedente
-                fetch('preferiti.jsp')
+
+            if (target.toLowerCase() === "preferiti") {
+                fetch("preferiti.jsp")
                     .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('preferiti').innerHTML = data;
+                    .then(html => {
+                        document.querySelector("#preferiti").innerHTML = html;
                     });
             }
-            if (target.toLowerCase() === 'ordini') {
-                document.getElementById('ordini').innerHTML = ''; // Opzionale: pulizia contenuto precedente
-                fetch('ordini.jsp')
+
+            if (target.toLowerCase() === "ordini") {
+                fetch("ordini.jsp")
                     .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('ordini').innerHTML = data;
+                    .then(html => {
+                        document.querySelector("#ordini").innerHTML = html;
                     });
             }
         });

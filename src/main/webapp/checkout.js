@@ -1,31 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const checkoutForm = document.getElementById('checkout-form');
-
-    checkoutForm.addEventListener('submit', function (event) {
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#checkout-form").addEventListener("submit", function (event) {
         event.preventDefault();
 
-        // Serializzazione del form
-        const formData = new URLSearchParams(new FormData(checkoutForm)).toString();
+        const formData = new URLSearchParams(new FormData(this)).toString();
 
-        // Richiesta con Fetch API
-        fetch('checkout', {
-            method: 'POST',
+        fetch("checkout", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: formData
-        })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = 'index.jsp';
-                } else {
-                    throw new Error('Alcuni prodotti non erano disponibili');
-                }
-            })
-            .catch(error => {
-                alert(JSON.stringify(error));
-                alert('Alcuni prodotti non erano disponibili, la pagina verrà ricaricata');
-                window.location.reload();
-            });
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = "index.jsp";
+            } else {
+                return response.text().then(error => {
+                    alert(JSON.stringify(error));
+                    alert("Alcuni prodotti non erano disponibili, la pagina verrà ricaricata");
+                    window.location.reload();
+                });
+            }
+        });
     });
 });
