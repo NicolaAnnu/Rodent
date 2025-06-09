@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<%@ page import="com.google.gson.Gson" %>
 <%@ page import="model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Prodotto" %>
@@ -23,41 +22,37 @@
 
     <div class="CartContainer">
         <%
-            for (int i = 0; i < prodotti.size(); i++) {
-                Prodotto prodotto = prodottoDAO.doRetrieveByid(prodotti.get(i).getIdProdotto());
-                if (prodotto == null) {
-                    prodotti.remove(i);
+            if (prodotti != null && !prodotti.isEmpty()) {
+                for (int i = 0; i < prodotti.size(); i++) {
+                    Prodotto pCheck = prodottoDAO.doRetrieveByid(prodotti.get(i).getIdProdotto());
+                    if (pCheck == null) {
+                        prodotti.remove(i);
+                        i--; // fondamentale per non saltare elementi dopo una rimozione
+                    }
                 }
-            }
-            if (prodotti.size() == 0) {
-        %>
-        <h1 style="text-align: center;font-family: 'Open Sans'">Non ci sono prodotti nel carrello 😔</h1>
-        <%} else {%>
-        <%
-            int numprodotti = 0;
-            float totale = 0;
-            for (int i = 0; i < prodotti.size(); i++) {
-                Prodotto prodotto = prodottoDAO.doRetrieveByid(prodotti.get(i).getIdProdotto());
-                numprodotti++;
-                totale += prodotti.get(i).getQuantita() * prodotto.getPrezzo();
+
+                if (!prodotti.isEmpty()) {
+                    int numprodotti = 0;
+                    float totale = 0;
+                    for (int i = 0; i < prodotti.size(); i++) {
+                        Prodotto prodotto = prodottoDAO.doRetrieveByid(prodotti.get(i).getIdProdotto());
+                        numprodotti++;
+                        totale += prodotti.get(i).getQuantita() * prodotto.getPrezzo();
         %>
         <div class="Cart-Items">
             <div class="image-box">
                 <img src="./images/<%=prodotto.getId()%>/1.jpg" alt="Immagine del prodotto" height="120px"/>
             </div>
             <div class="about">
-                <h1 class="title"><%=prodotto.getNome()%>
-                </h1>
+                <h1 class="title"><%=prodotto.getNome()%></h1>
             </div>
             <div class="counter" data-product="<%=prodotto.getId()%>">
                 <div class="btn plus">+</div>
-                <div class="count"><%=prodotti.get(i).getQuantita()%>
-                </div>
+                <div class="count"><%=prodotti.get(i).getQuantita()%></div>
                 <div class="btn minus">-</div>
             </div>
             <div class="prices">
-                <div class="amount"><%=prodotto.getPrezzo()%>
-                </div>
+                <div class="amount"><%=prodotto.getPrezzo()%></div>
             </div>
         </div>
         <% } %>
@@ -68,21 +63,42 @@
                     <div class="Subtotal">Sub-Totale</div>
                     <div class="items"><%=numprodotti%> oggetti</div>
                 </div>
-                <div class="total-amount"><%=String.format("%.2f", totale).replace(",", ".")%><span
-                        class="euro">€</span></div>
+                <div class="total-amount"><%=String.format("%.2f", totale).replace(",", ".")%><span class="euro">€</span></div>
             </div>
-            <button id="submit-checkout" class="button"
-                    onclick='$("#checkout-container").load("checkout.jsp"); $(".CarrelloContainer").hide()'>
-                Checkout
-            </button>
+            <button id="submit-checkout" class="button">Checkout</button>
+
+            <script>
+                document.getElementById("submit-checkout").addEventListener("click", function () {
+                    fetch("checkout.jsp")
+                        .then(response => {
+                            if (!response.ok) throw new Error("Errore durante il caricamento di checkout.jsp");
+                            return response.text();
+                        })
+                        .then(html => {
+                            document.getElementById("checkout-container").innerHTML = html;
+                            const carrello = document.querySelector(".CarrelloContainer");
+                            if (carrello) carrello.style.display = "none";
+                        })
+                        .catch(error => {
+                            console.error("Errore nel caricamento:", error);
+                        });
+                });
+            </script>
         </div>
-
+        <%
+        } else {
+        %>
+        <h1 style="text-align: center; font-family: 'Open Sans'">Non ci sono prodotti nel carrello</h1>
+        <%
+            }
+        } else {
+        %>
+        <h1 style="text-align: center; font-family: 'Open Sans'">Non ci sono prodotti nel carrello</h1>
+        <%
+            }
+        %>
     </div>
-    <%}%>
 </div>
-<div id="checkout-container">
-
-</div>
-
+<div id="checkout-container"></div>
 </body>
 </html>

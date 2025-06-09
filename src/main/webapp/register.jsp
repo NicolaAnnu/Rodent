@@ -41,7 +41,7 @@
   <label class="register-label" for="cap">Cap :</label>
   <input required class="input-field" id="cap" name="cap" aria-describedby="" type="text" pattern="\d{5}" title="Inserisci un cap valido">
 
-  <input class="submit-button" type="submit" aria-describedby="Submit Button">
+  <input class="submit-button" type="submit" value="Registrati">
 
 </form>
 </body>

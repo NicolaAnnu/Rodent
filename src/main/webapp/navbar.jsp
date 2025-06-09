@@ -34,7 +34,7 @@
     <div id="search-profile-cart">
         <div class="wrapper1">
             <div class="search-container">
-                <input type="search" placeholder="Search.." class="search-input">
+                <input type="search" aria-label="Cerca nel sito" placeholder="Search.." class="search-input">
                 <button class="search-button" aria-label="Bottone di ricerca">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>

@@ -7,7 +7,7 @@ function handleClickPreferiti() {
             }
             let images = this.querySelectorAll("img");
 
-            fetch("addPreferiti?id=" + id)
+            fetch("/annunziata_war/addPreferiti?id=" + id)
                 .then(response => {
                     if (response.ok) {
                         images.forEach(img => {
@@ -23,7 +23,7 @@ function handleClickPreferiti() {
 
 
 function handlePreferiti() {
-    fetch("getPreferiti")
+    fetch("/annunziata_war/getPreferiti")
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
@@ -43,7 +43,7 @@ function handleSearch() {
         button.addEventListener("click", function search() {
             let searchParameter = document.querySelector(".search-container input").value;
 
-            fetch("cercaProdotti?searchParam=" + encodeURIComponent(searchParameter))
+            fetch("/annunziata_war/cercaProdotti?searchParam=" + encodeURIComponent(searchParameter))
                 .then(response => response.json())
                 .then(data => {
                     let container = document.querySelector(".card-container");

@@ -18,16 +18,15 @@
 <div class="card-container">
   <% for (Prodotto p : (ArrayList<Prodotto>) request.getAttribute("prodotti")) {%>
   <div class="product-card" id="<%=p.getId()%>">
-    <a href="visualizzaProdotto.jsp?id=<%=p.getId()%>">
-      <img src="./images/<%=p.getId()%>/1.jpg">
-      <h4><%=p.getNome()%>
+    <a href="visualizzaProdotto.jsp?id=<%=p.getId()%>" aria-label="Visualizza <%=p.getNome()%>">
+      <img src="./images/<%=p.getId()%>/1.jpg" alt="Immagine di <%=p.getNome()%>">
+      <h4><%=p.getNome()%></h4>
     </a>
-    </h4>
     <div class="internal-div">
       <span><%=String.format("%.2f", p.getPrezzo()).replace(",", ".")%>€</span>
-      <button class="heart-button">
-        <img src="icons/heartIcon.svg">
-        <img src="icons/heartIconClicked.svg" style="display: none">
+      <button class="heart-button" aria-label="Aggiungi ai Preferiti">
+        <img src="icons/heartIcon.svg" alt="">
+        <img src="icons/heartIconClicked.svg" style="display: none" alt="Elemento aggiunto ai preferiti">
       </button>
     </div>
   </div>

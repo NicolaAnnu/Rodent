@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
             formData.append("prezzo", prezzo);
             formData.append("quantita", quantita);
 
-            fetch("aggiornaProdotto", {
+            fetch("/annunziata_war/aggiornaProdotto", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"

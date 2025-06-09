@@ -68,7 +68,7 @@ public class checkout extends HttpServlet {
             int idCarrello = carrelloDAO.doSave(carrello.getUtente());
             newCarrello.setId(idCarrello);
             request.getSession().setAttribute("carrello", newCarrello);
-
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
 

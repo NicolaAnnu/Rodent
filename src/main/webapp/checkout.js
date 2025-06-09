@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#checkout-form").addEventListener("submit", function (event) {
         event.preventDefault();
-
+        print("Sono il click del checkout")
         const formData = new URLSearchParams(new FormData(this)).toString();
-
-        fetch("checkout", {
+        fetch("/annunziata_war/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

@@ -1,7 +1,7 @@
 <%@ page import="model.Utente" %>
 <html>
 <body>
-<script src="checkout.js"></script>
+<script src="./checkout.js"></script>
 
 <% Utente utente = (Utente) request.getSession().getAttribute("utente");%>
 <%if (utente == null) {%>
@@ -11,7 +11,9 @@
     </p>
 </div>
 <%} else {%>
-<form id="checkout-form" method="post">
+<form id="checkout-form"
+action="checkout"
+method="POST">
     <label class="register-label" for="email">Email :</label>
     <input class="input-field" id="email" name="email" aria-describedby="Inserimento Email" type="email" required value="<%=utente.getEmail()%>">
 
@@ -46,9 +48,13 @@
         <label class="register-label" for="bonifico"> Bonifico </label>
         <input class="payment-input" id="bonifico" name="metodo-di-pagamento" aria-describedby="Effettuare metodo di Pagamento" type="radio" value="Bonifico">
     </fieldset>
-
-    <input class="submit-button" type="submit">
+    <input id="submit-form-button" class="submit-button" type="submit" >
 </form>
+<script>
+    document.getElementById("submit-form-button").addEventListener("click",  (event) =>{
+        console.log(event)
+    })
+</script>
 <%}%>
 </body>
 </html>

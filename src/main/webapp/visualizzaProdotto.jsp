@@ -65,11 +65,12 @@
     <br>
     <div class="atc-container">
       <br><br>
-      <button class="heart-button no-background">
-        <img class="hearth" src="icons/heartIcon.svg" alt="" style="<%if(isPreferito){%><%="display:none"%><%}%>">
+      <button class="heart-button no-background" aria-label="Aggiungi ai Preferiti">
+        <img class="hearth" src="icons/heartIcon.svg" alt="" style="<% if (isPreferito) { %><%= "display:none" %><% } %>">
         <img class="hearth" src="icons/heartIconClicked.svg" alt="Elemento aggiunto ai preferiti"
-             style="<%if(!isPreferito){%><%="display:none"%><%}%>">
+             style="<% if (!isPreferito) { %><%= "display:none" %><% } %>">
       </button>
+
       <br><br>
       <label id="qlabel" for="quantita">Quantita :</label>
       <select id="quantita" type="number" name="quantita">

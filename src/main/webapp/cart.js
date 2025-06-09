@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("id", id);
             formData.append("quantita", quantita);
 
-            fetch("addToCart", {
+            fetch("/annunziata_war/addToCart", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"

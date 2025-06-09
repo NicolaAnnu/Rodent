@@ -24,7 +24,7 @@
   <label class="login-label" for="password">Password :</label>
   <input class="input-field" id="password" name="password"  aria-describedby="Inserimento Password" type="password" required>
   <p class="messaggio-errore" style="display: none">I dati inseriti non sono corretti !</p>
-  <input class="submit-button" type="submit">
+  <input class="submit-button" type="submit" value="Accedi">
   <p id="registrati"><a href="register.jsp">Registrati</a></p>
 </form>
 </body>

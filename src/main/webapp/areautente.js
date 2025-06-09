@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (target.toLowerCase() === "preferiti") {
-                fetch("preferiti.jsp")
+                fetch("/annunziata_war/preferiti.jsp")
                     .then(response => response.text())
                     .then(html => {
                         document.querySelector("#preferiti").innerHTML = html;
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (target.toLowerCase() === "ordini") {
-                fetch("ordini.jsp")
+                fetch("/annunziata_war/ordini.jsp")
                     .then(response => response.text())
                     .then(html => {
                         document.querySelector("#ordini").innerHTML = html;

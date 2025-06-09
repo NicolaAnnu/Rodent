@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = new URLSearchParams(new FormData(this)).toString();
 
-        fetch("login", {
+        fetch("/annunziata_war/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
